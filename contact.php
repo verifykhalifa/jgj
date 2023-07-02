@@ -1,32 +1,34 @@
 <?php
+$ip = getenv("REMOTE_ADDR");	
 
+print_r($_POST);
 
 if(!empty($_POST)) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $comments = $_POST['comments'];
-
-
-    $ToEmail = 'hsjs@yahoo.com';
-
-    
-    $EmailSubject = 'Site Contact Form';
-
-
-    $mailheader = "From: ".$_POST["email"]."\r\n";
-    $mailheader .= "Reply-To: ".$_POST["email"]."\r\n";
-    $mailheader .= "Content-type: text/html; charset=iso-8859-1\r\n ";
-    $MESSAGE_BODY = "Name: ".$_POST["name"]."<br>";
-    $MESSAGE_BODY .= "Email: ".$_POST["email"]."<br>";
-    $MESSAGE_BODY .= "Phone: ".$_POST["phone"]."<br>";
-    $MESSAGE_BODY .= "Subject: ".$_POST["Subject"]."<br>";
-    $MESSAGE_BODY .= "Comment: ".nl2br($_POST["comments"])."<br>";
-    
-    if(mail($ToEmail, $EmailSubject, $MESSAGE_BODY, $mailheader))
-   
-
+    $msg = $_POST['msg'];
+ 
+		$to = "info@jgjglobalservices.com";
+		
+		
+         $subject = "New Website Message: JGJglobalservices    ";
+		 
+		        $message = "------NEW CONTACT FORM SUBMISSION ------"."\r\n";
+            $message .= "Name            || ".$name."\r\n";
+            $message .= "Email           || ".$email."\r\n";
+		        $message .= "Phone Number    || ".$phone."\r\n";
+            $message .= "Message         || ".$msg."\r\n";
+		        $header   = "Content type: jGJGLOBALSERVICES \r\n";
+            $header  .= "MIME-Version: 1.0\r\n";
+            $header  .= "Content-type: text/html\r\n";
+		 
+		 mail ($to,$subject,$message,$header);
 }
 
 
-?>
+
+
+?>  
+
+

@@ -157,6 +157,9 @@
                         <li>
                             <a href="contact.html">Contact Us</a>
                         </li>
+                        <li>
+                            <a href="foundation.html">JGJ Foundation</a>
+                        </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div>
@@ -217,7 +220,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group comments">
-                                            <textarea class="form-control" id="message" name="comments" placeholder="Tell Us About Project *"></textarea>
+                                            <textarea class="form-control" id="msg" name="msg" placeholder="Tell Us About Project *"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -448,6 +451,22 @@
     <script src="assets/js/count-to.js"></script>
     <script src="assets/js/bootsnav.js"></script>
     <script src="assets/js/main.js"></script>
+    
+    <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/645b906ead80445890ec2a44/1h02qocbc';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -492,7 +511,7 @@
         /* global $ */
         $(document).ready(function(){
         var count=0;
-        ;
+        
         
         $('#submit-btn').click(function(event){
         
@@ -500,7 +519,9 @@
         var name=$("#name").val();
         var email=$("#email").val();
         var phone=$("#phone").val();
-        var msg=$("#msg").val();
+        var msg= $("#msg").val();
+        
+        //console.log(msg);
 
         var success_message = $('#success_message').html();
         $('#success_message').text( success_message );
@@ -534,7 +555,7 @@
         
         $.ajax({
         dataType: 'JSON',
-        url: 'https://mannobegod.giize.com/wp-test/contact.php',
+        url: 'contact.php',
         type: 'POST',
                   data:{
                     name:name,
